@@ -29,14 +29,14 @@ st.image(image, use_column_width=False)
 
 
 
-@st.cache_data  
+@st.cache_data
 def get_data():
     url = "https://cis102.guihang.org/data/AB_NYC_2019.csv"
     return pd.read_csv(url)
 df = get_data()
 
 st.header('AireBnB Data NYC (2019-09-12)')
-st.dataframe(df.head())
+st.dataframe(df.head(10))
 
 st.subheader('Selecting a subset of columns')
 
@@ -105,4 +105,3 @@ st.write("---")
 
 select_col = st.selectbox("Select Columns", list(df.columns), 0)
 st.write(f"Your selection is {select_col}")
-
